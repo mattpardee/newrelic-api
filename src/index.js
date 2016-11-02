@@ -61,6 +61,19 @@ export default class Client {
   }
 
   /**
+   * Deployments
+   * @param  {Number} app
+   * @return {Promise}
+   */
+  deployments(app) {
+    const url = `applications/${app}/deployments.json`;
+    return this.call(url)
+    .then(response => {
+      return response.deployments;
+    });
+  }
+
+  /**
    * Error rate
    * @param  {Object} params
    * @return {Promise}

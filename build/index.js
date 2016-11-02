@@ -94,6 +94,20 @@ var Client = (function () {
     }
 
     /**
+     * Deployments
+     * @param  {Number} app
+     * @return {Promise}
+     */
+  }, {
+    key: 'deployments',
+    value: function deployments(app) {
+      var url = 'applications/' + app + '/deployments.json';
+      return this.call(url).then(function (response) {
+        return response.deployments;
+      });
+    }
+
+    /**
      * Error rate
      * @param  {Object} params
      * @return {Promise}
